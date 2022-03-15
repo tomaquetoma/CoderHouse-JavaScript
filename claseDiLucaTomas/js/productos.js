@@ -8,11 +8,11 @@ class Productos {
   precioVenta() {
     let precioVenta = this.precioCompra * 1.52;
 
-    return precioVenta;
+    return precioVenta; 
   }
 }
 
-// Generacion e Ingreso de contenedores a stock
+// Generacion e Ingreso de contenedores a stock 
 let listaProductos = [];
 
 const producto1 = new Productos("20DC", 15, 1000, "Montevideo");

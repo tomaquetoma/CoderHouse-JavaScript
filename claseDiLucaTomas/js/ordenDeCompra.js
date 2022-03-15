@@ -12,8 +12,8 @@ function ordenDeCompra(params) {
   ).toUpperCase();
 
   if (
-    tipoContenedor === producto1.tipo ||
-    tipoContenedor === producto4.tipo ||
+    tipoContenedor === producto1.tipo || 
+    tipoContenedor === producto4.tipo || 
     tipoContenedor === producto7.tipo
   ) {
     generarOrden.push(tipoContenedor);
