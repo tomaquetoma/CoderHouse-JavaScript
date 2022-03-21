@@ -37,9 +37,18 @@
         </svg>
       </div>
     </nav>
-    <div class="container text-center mt-3">
+    <div class="container text-center mt-3 bg bg-secondary">
+      <div  class="row bg bg bg-success">
+        <div class="col">
+          <p>Que tipo de contenedor desea?</p>
+          <button id="agregar20DC" class="btn btn-primary m-1">20DC</button>
+          <button id="agregar40DC" class="btn btn-primary m-1">40DC</button>
+          <button id="agregar40HC" class="btn btn-primary m-1">40HC</button>
+          <button id="vaciarCarro" class="btn btn-primary m-1">Vaciar Local Storage</button>
+        </div>
+      </div>
       <div id="contenedores" class="row"></div>
-      <div class="row">
+      <div class="row bg bg-warning">
         <div class="col">
           <p class="text-start"><strong> Ingrese sus datos personales </strong></p>
           <form id="formularioUsuario" class="row g-3 mt-2 p-2 border">
@@ -51,9 +60,12 @@
         </form>
         </div>
       </div>
+      
     </div>
     <script src="/js/productos.js"></script>
     <!-- <script src="/js/ordenDeCompra.js"></script> -->
     <script src="/js/formularioUsuario.js"></script>
+    <script src="/js/carro.js"></script>
   </body>
 </html>
+

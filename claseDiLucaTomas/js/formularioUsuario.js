@@ -18,8 +18,9 @@ if (nombreUsuario == "" || apellidoUsuario == "" || apellidoUsuario == "" || cor
 }
 
 else {
-    return (alert(`Hola ${nombreUsuario} ${apellidoUsuario}, le confimamos que hemos recibido sus datos y le enviaremos nuestro stock de contenedores en ${ciudadUsuario} a su correo electronico: ${correoUsuario} en breves. Que tenga un buen dia`))
+    return (
+    alert(`Hola ${nombreUsuario} ${apellidoUsuario}, le confimamos que hemos recibido sus datos y le enviaremos nuestro stock de contenedores en ${ciudadUsuario} a su correo electronico: ${correoUsuario} en breves. Que tenga un buen dia`))
+    
 }
    }
    
-

@@ -1,41 +1,10 @@
-class Productos {
-  constructor(tipo, cantidad, precioCompra, ciudad) {
-    this.tipo = tipo;
-    this.cantidad = cantidad;
-    this.precioCompra = precioCompra;
-    this.ciudad = ciudad;
-  }
-  precioVenta() {
-    let precioVenta = this.precioCompra * 1.52;
-
-    return precioVenta; 
-  }
-}
-
 // Generacion e Ingreso de contenedores a stock 
-let listaProductos = [];
+let listaProductos = [
+ {id: 1 , tipo: "20DC", precio: 1200, stock: 15, img: "/images/contenedor_20DC.jfif"  },
+ {id: 2 , tipo: "40DC", precio: 2450, stock: 18, img: "/images/contenedor_40DC.jfif"  },
+ {id: 3 , tipo: "40HC", precio: 3600, stock: 35, img: "/images/contenedor_40HC.jfif"  },
 
-const producto1 = new Productos("20DC", 15, 1000, "Montevideo");
-const producto2 = new Productos("20DC", 8, 800, "Buenos Aires");
-const producto3 = new Productos("20DC", 5, 1200, "Santiago de Chile");
-const producto4 = new Productos("40DC", 13, 2000, "Montevideo");
-const producto5 = new Productos("40DC", 20, 2100, "Buenos Aires");
-const producto6 = new Productos("40DC", 3, 2500, "Santiago de Chile");
-const producto7 = new Productos("40HC", 20, 3000, "Montevideo");
-const producto8 = new Productos("40HC", 41, 2700, "Buenos Aires");
-const producto9 = new Productos("40HC", 11, 3500, "Santiago de Chile");
-
-listaProductos.push(
-  producto1,
-  producto2,
-  producto3,
-  producto4,
-  producto5,
-  producto6,
-  producto7,
-  producto8,
-  producto9
-);
+];
 
 let contenedores = document.getElementById("contenedores");
 
@@ -45,12 +14,12 @@ function mostrarProdcutos() {
     let infoContenedores = document.createElement("div");
 
     infoContenedores.innerHTML = `
-                                  <div class="card" style="width: 18rem;">
+                                  <div class="card p-2" style="width: 18rem;">
+                                  <img src="${element.img}" alt="foto contenedor">
                                   <h2> ${element.tipo}</h2>
-                                  <p> Precio USD ${element.precioVenta()}</p>
-                                  <p>Ciudad: ${element.ciudad}</p>
-                                  <p>Stock: ${element.cantidad}</p>
-                                  <a href="#" class="btn btn-primary">Ver Información</a>
+                                  <p> Precio USD ${element.precio}</p>
+                                  <p>Stock: ${element.stock}</p>
+                                  <p>ID: ${element.id}</p>
                                   </div>`;
 
     infoContenedores.className = "col p-2 m-3";
@@ -59,3 +28,5 @@ function mostrarProdcutos() {
 }
 
 mostrarProdcutos();
+
+
