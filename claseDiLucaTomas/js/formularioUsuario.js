@@ -4,23 +4,23 @@ formularioUsuario.addEventListener("submit", validarFormulario);
 
 function validarFormulario (e){
 
-
     e.preventDefault ();
     formularioUsuario = e.target
 
     let nombreUsuario = formularioUsuario.children[0].value; 
     let apellidoUsuario = formularioUsuario.children[1].value;
-    let correoUsuario = formularioUsuario.children[2].value; 
-    let ciudadUsuario = formularioUsuario.children[3].value;
+    let correoUsuario = formularioUsuario.children[2].value;
 
-if (nombreUsuario == "" || apellidoUsuario == "" || apellidoUsuario == "" || correoUsuario == "") {
-    return (alert("For favor complete todos los datos"))
+    const datosCompletosFormulario = `Hola ${nombreUsuario} ${apellidoUsuario}, le confimamos que hemos recibido sus datos y le enviaremos nuestro stock de contenedores a su correo electronico: ${correoUsuario} en breves.`
+
+if (nombreUsuario == "" || apellidoUsuario == "" || correoUsuario == "") {
+    return (
+        deseoUsuario("error", faltanDatosFormulario)
+        )
 }
-
 else {
     return (
-    alert(`Hola ${nombreUsuario} ${apellidoUsuario}, le confimamos que hemos recibido sus datos y le enviaremos nuestro stock de contenedores en ${ciudadUsuario} a su correo electronico: ${correoUsuario} en breves. Que tenga un buen dia`))
-    
-}
+        deseoUsuario("success", datosCompletosFormulario)
+    )}
    }
    
