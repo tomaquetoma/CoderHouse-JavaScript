@@ -16,7 +16,7 @@ function mostrarProdcutos() {
     infoContenedores.innerHTML = `
                                   <div class="card p-2" style="width: 18rem;">
                                   <img src="${img}" alt="foto contenedor">
-                                  <h2> ${tipo}</h2>
+                                  <h4> ${tipo}</h4>
                                   <p> Precio USD ${precio}</p>
                                   <p>Stock: ${stock}</p>
                                   <p>ID: ${id}</p>
@@ -30,4 +30,22 @@ function mostrarProdcutos() {
 
 mostrarProdcutos();
 
+const lista = document.querySelector('#listado')
+fetch('/data.json')
+  .then( (res) => res.json())
+  .then( (data) => {
+    data.forEach((producto) => {
+      const divFetch = document.createElement('div')
+      divFetch.innerHTML = `
+                            <div class="card p-2" style="width: 18rem;">
+                            <img src="${producto.img}" alt="foto contenedor">
+                            <h4>${producto.tipo}</h4>
+                            <p>USD ${producto.precio}</p>
+                            <p>Stock: ${producto.stock}</p>
+                            <p> ID: ${producto.id}</p>
+                            </div>`
+      divFetch.className = "col p-2 m-3";
+      lista.append(divFetch)
+    })
+})
 
