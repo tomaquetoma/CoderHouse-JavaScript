@@ -23,54 +23,44 @@
                 height="50"
                 />
         </a>
-      <div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="35"
-          height="35"
-          fill="currentColor"
-          class="bi bi-basket"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"
-          />
-        </svg>
-      </div>
       </div>
     </nav>
     <div class="container text-center mt-3">
       <div  class="row">
-        <div class="col">
-          <h3>Que tipo de contenedor desea?</h3>
+        <div class="col mb-2">
+          <h3>Que tipo de contenedor desea agregar al carrito?</h3>
           <button id="agregar20DC" class="btn btn-primary m-1">20DC</button>
           <button id="agregar40DC" class="btn btn-primary m-1">40DC</button>
           <button id="agregar40HC" class="btn btn-primary m-1">40HC</button>
-          <button id="vaciarCarro" class="btn btn-primary m-1">Vaciar Local Storage</button>
-          <button id="verPreferencia" class="btn btn-success m-1">Ver Preferencia Usuario</button>
+          <button id="vaciarCarro" class="btn btn-primary m-1">Vaciar Carrito</button>
         </div>
         <div class="col">
-          <h3>Cuantos contenedores desea segun su seleccion?</h3>
-          <button id="contadorSuma" class="btn btn-outline-primary m-1" style="width: 4rem;">+</button>
-          <button id="contadorResta" class="btn btn-outline-primary m-1" style="width: 4rem;">-</button>
-          <p id="muestraContador">1</p>
+          <button id="carritoButton" class="btn btn-success m-1">Ver carrito</button>
+          <div class="mb-2 muestraCarrito">
+            <h2>CARRITO</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Precio USD</th>
+                </tr>
+              </thead>
+              <tbody id="carrito">
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-      <div id="contenedores" class="row bg bg-secondary">
-        <h1> Productos desde un Array de Objetos </h1>
-      </div>
-      <div id="listado" class="row bg bg-danger">
-        <h1> Productos desde Fetch ruta relativa </h1>
-      </div>
-      <div class="row bg bg-warning">
+      <div id="listado" class="row bg bg-danger"></div>
+      <div class="row bg bg-warning mt-2 border">
         <div class="col">
-          <p class="text-start"><strong> Ingrese sus datos personales </strong></p>
+          <p class="text-start"><strong> Ingrese sus datos personales para que le enviemos nuestro reporte semanal</strong></p>
           <form id="formularioUsuario" class="row g-3 mt-2 p-2 border">
             <input type="text" class="form-control" id="nombreUsuario" placeholder="Ingrese su nombre..">
             <input type="text" class="form-control" id="apellidoUsuario" placeholder="Ingrese su apellido..">
             <input type="email" class="form-control" id="correoUsuario" placeholder="Ingrese su correo electronico..">
             <button class="btn btn-primary" type="submit">Enviar Formulario</button>
-        </form>
+          </form>
         </div>
       </div>
       
@@ -78,7 +68,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/alertas.js"></script>
     <script src="/js/productos.js"></script>
-    <script src="/js/contadores.js"></script>
     <!-- <script src="/js/ordenDeCompra.js"></script> -->
     <script src="/js/formularioUsuario.js"></script>
     <script src="/js/carro.js"></script>

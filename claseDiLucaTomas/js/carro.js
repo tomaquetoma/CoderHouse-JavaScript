@@ -1,45 +1,58 @@
-//Aqui sabemos la preferencia del usuario y la almacenamos en el localStorage
 const agregar20DC = document.getElementById("agregar20DC");
 const agregar40DC = document.getElementById("agregar40DC");
 const agregar40HC = document.getElementById("agregar40HC");
 const vaciarCarro = document.getElementById("vaciarCarro");
-const verPreferencia = document.getElementById("verPreferencia");
+const carritoButton = document.getElementById("carritoButton");
+const carrito = document.getElementById("carrito");
+const muestraCarrito = document.getElementsByClassName('muestraCarrito')
 
-let productosCarrito = []
+
+let productosCarrito = [];
+
 agregar20DC.onclick = () => {
-    localStorage.setItem("productoDeseado", "Contenedor 20DC");
-    productosCarrito.push({...listaProductos[0]});
-    console.log(productosCarrito);
+    productosCarrito.push({tipo:"20DC", precio: 1200});
+    deseoUsuario("success", productoAgregado);
+ 
 };
+
 agregar40DC.onclick = () => {
-    localStorage.setItem("productoDeseado", "Contenedor 40DC");
-    productosCarrito.push({...listaProductos[1]});
-    console.log(productosCarrito);
+    productosCarrito.push({tipo:"40DC", precio: 2450});
+    deseoUsuario("success", productoAgregado);
 };
 
 agregar40HC.onclick = () => {
-    localStorage.setItem("productoDeseado", "Contenedor 40HC");
-    productosCarrito.push({...listaProductos[2]});
-    console.log(productosCarrito);
+    productosCarrito.push({tipo:"40HC", precio: 3600});
+    deseoUsuario("success", productoAgregado);
 }; 
-vaciarCarro.onclick = () => localStorage.clear(); 
-
-verPreferencia.onclick = () => {
-    localStorage.getItem("productoDeseado") === null ? deseoUsuario("error", noPreferenciaUsuario) : deseoUsuario("success", siPreferenciaUsuario);
-}
-
-for (let i = 0; i < localStorage.length; i++) {
-    let clave = localStorage.key(i);
-    console.log("Clave: "+ clave);
-    console.log("Valor: "+ localStorage.getItem(clave));
-    }
 
 
-console.log(productosCarrito);
+vaciarCarro.onclick = () => {
+    productosCarrito = [];
+    deseoUsuario("success", vaciarCarrito);
 
-//Aqui pasamos el objecto de productos a JSON segun lo pedido en el desafio
-const productosStringify = JSON.stringify(productosCarrito)
-const productosEnJson = localStorage.setItem('ListadoProductosJson', productosStringify);
+};
 
+carritoButton.onclick = () => {
+    mostrarProdcutosCarrito();
+};
 
+// // Esta funcion le muestra al cliente los productos agregados al carrito
+const mostrarProdcutosCarrito = () => {
+    
+    if (productosCarrito.length === 0) {
+        deseoUsuario("error", carritoVacio)
+        
+    } else {
+        for (let i = 0; i < productosCarrito.length; i++) {
+        //Desestructuracion
+        const {tipo, precio} = productosCarrito[i];
 
+        let infoCarrito = document.createElement("tr");
+        infoCarrito.innerHTML += `
+                                <td>${tipo}</td>
+                                <td>${precio}</td>`
+
+        carrito.append(infoCarrito);
+        }; 
+    }  
+};
