@@ -11,8 +11,7 @@ let productosCarrito = [];
 
 agregar20DC.onclick = () => {
     productosCarrito.push({tipo:"20DC", precio: 1200});
-    deseoUsuario("success", productoAgregado);
- 
+    deseoUsuario("success", productoAgregado); 
 };
 
 agregar40DC.onclick = () => {
@@ -27,12 +26,14 @@ agregar40HC.onclick = () => {
 
 
 vaciarCarro.onclick = () => {
+    carrito.innerHTML = "";
     productosCarrito = [];
     deseoUsuario("success", vaciarCarrito);
 
 };
 
 carritoButton.onclick = () => {
+    carrito.innerHTML = "";
     mostrarProdcutosCarrito();
 };
 
